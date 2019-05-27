@@ -1,2 +1,2 @@
 # practice_python
-Phython udemy course
+Python udemy course
