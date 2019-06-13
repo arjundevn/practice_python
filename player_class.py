@@ -1,28 +1,25 @@
 class Player:
-    def __init__(self,card1,card2, card3= (0,0), card4= (0,0)):
-        self.card1 = card1
-        self.card2 = card2
-        self.card3 = card3
-        self.card4 = card4
-    def total(self):
-        tot = 0
-        if self.card1[1]!=0:
-            tot+= self.card1[1]
-        if self.card2[1]!=0:
-            tot+= self.card2[1]
-        if self.card3[1]!=0:
-            tot+= self.card3[1]
-        if self.card4[1]!=0:
-            tot+= self.card4[1]
-        return tot
+    def __init__(self,hand,tot = 0):
+        self.hand = hand
+        self.tot = tot
     def display(self):
-        a=[]
-        if self.card1[1]!=0:
-            a.append(self.card1)
-        if self.card2[1]!=0:
-            a.append(self.card2)
-        if self.card3[1]!=0:
-            a.append(self.card3)
-        if self.card4[1]!=0:
-            a.append(self.card4)
-        return f"Your cards are {a}"
+        print("Your cards are:")
+        for x in range(0,len(self.hand)):
+            print(f"{self.hand[x][1]} of {self.hand[x][0]}")
+    def total(self):
+        for x in range(0,len(self.hand)):
+            try:
+                self.tot+= self.hand[x][1]
+            except:
+                if self.hand[x][1] == 'King' or self.hand[x][1] == 'Queen' or self.hand[x][1] == 'Jack':
+                    self.tot+= 10
+                elif self.hand[x][1] == 'Ace':
+                    while True:
+                        ace = int(input('Please select 1 or 11 for Ace:'))
+                        if ace ==1:
+                            self.tot+= 1
+                            break
+                        elif ace ==11:
+                            self.tot+= 11
+                            break
+        return f"TOTAL IS {self.tot}"
