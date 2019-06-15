@@ -27,8 +27,3 @@ def shuffle_deck(deck):
     shuffles deck
     '''
     random.shuffle(deck)
-
-    
-d = create_deck()
-shuffle_deck(d)
-print(d)

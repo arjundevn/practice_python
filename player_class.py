@@ -3,9 +3,10 @@ class Player:
         self.hand = hand
         self.tot = tot
     def display(self):
-        print("Your cards are:")
+        print("cards are:")
         for x in range(0,len(self.hand)):
             print(f"{self.hand[x][1]} of {self.hand[x][0]}")
+
     def total(self):
         for x in range(0,len(self.hand)):
             try:
@@ -22,4 +23,6 @@ class Player:
                         elif ace ==11:
                             self.tot+= 11
                             break
-        return f"TOTAL IS {self.tot}"
+        return self.tot
+        
+    
